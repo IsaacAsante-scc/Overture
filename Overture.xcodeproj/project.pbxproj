@@ -13,6 +13,7 @@
 		91977B35252CD5AA0066C23D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91977B33252CD5AA0066C23D /* Main.storyboard */; };
 		91977B37252CD5AA0066C23D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91977B36252CD5AA0066C23D /* Assets.xcassets */; };
 		91977B3A252CD5AA0066C23D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91977B38252CD5AA0066C23D /* LaunchScreen.storyboard */; };
+		919D6F15253CD2530022E6D4 /* SplashScreenStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		91977B36252CD5AA0066C23D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91977B39252CD5AA0066C23D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		91977B3B252CD5AA0066C23D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenStart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				91977B2D252CD5AA0066C23D /* AppDelegate.swift */,
 				91977B2F252CD5AA0066C23D /* SceneDelegate.swift */,
 				91977B31252CD5AA0066C23D /* ViewController.swift */,
+				919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */,
 				91977B33252CD5AA0066C23D /* Main.storyboard */,
 				91977B36252CD5AA0066C23D /* Assets.xcassets */,
 				91977B38252CD5AA0066C23D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				91977B32252CD5AA0066C23D /* ViewController.swift in Sources */,
 				91977B2E252CD5AA0066C23D /* AppDelegate.swift in Sources */,
 				91977B30252CD5AA0066C23D /* SceneDelegate.swift in Sources */,
+				919D6F15253CD2530022E6D4 /* SplashScreenStart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
