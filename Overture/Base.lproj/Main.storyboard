@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tef-kH-4Sm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b6N-GI-QcC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,6 +35,7 @@
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="MBZ-cp-65M"/>
+                    <navigationItem key="navigationItem" id="9BJ-Cm-bF5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvT-gy-iAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,6 +61,7 @@
         <scene sceneID="CXL-tg-ztG">
             <objects>
                 <tabBarController id="Tef-kH-4Sm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9uM-HC-ykU"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xtE-Gk-Af8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -75,8 +77,54 @@
             </objects>
             <point key="canvasLocation" x="-606" y="-730"/>
         </scene>
+        <!--Splash Screen Start-->
+        <scene sceneID="Jae-UQ-x1i">
+            <objects>
+                <viewController id="b6N-GI-QcC" customClass="SplashScreenStart" customModule="Overture" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yhm-ZD-Pka">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGG-dj-J5H">
+                                <rect key="frame" x="76" y="383" width="263" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iGG-dj-J5H" secondAttribute="height" multiplier="263:41" id="Rjv-pf-iEv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ldB-Cm-eo7">
+                                <rect key="frame" x="53" y="188" width="309" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ldB-Cm-eo7" secondAttribute="height" multiplier="309:164" id="91G-5a-AKu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z2K-jt-eCT"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iGG-dj-J5H" firstAttribute="top" secondItem="ldB-Cm-eo7" secondAttribute="bottom" constant="31" id="5eu-jz-mh7"/>
+                            <constraint firstItem="ldB-Cm-eo7" firstAttribute="top" secondItem="z2K-jt-eCT" secondAttribute="top" constant="144" id="6DC-CH-uqu"/>
+                            <constraint firstItem="iGG-dj-J5H" firstAttribute="top" secondItem="ldB-Cm-eo7" secondAttribute="bottom" constant="31" id="CTL-XG-YQE"/>
+                            <constraint firstItem="z2K-jt-eCT" firstAttribute="trailing" secondItem="iGG-dj-J5H" secondAttribute="trailing" constant="75" id="I1R-Cv-VFN"/>
+                            <constraint firstItem="ldB-Cm-eo7" firstAttribute="leading" secondItem="z2K-jt-eCT" secondAttribute="leading" constant="53" id="Wfp-jU-xc3"/>
+                            <constraint firstItem="z2K-jt-eCT" firstAttribute="trailing" secondItem="ldB-Cm-eo7" secondAttribute="trailing" constant="52" id="dhu-cq-Cwp"/>
+                            <constraint firstItem="iGG-dj-J5H" firstAttribute="leading" secondItem="z2K-jt-eCT" secondAttribute="leading" constant="76" id="ruO-8y-a9W"/>
+                            <constraint firstItem="z2K-jt-eCT" firstAttribute="bottom" secondItem="iGG-dj-J5H" secondAttribute="bottom" constant="438" id="tMT-Rw-kyM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Tef-kH-4Sm" kind="presentation" identifier="showStartScreen" modalPresentationStyle="overFullScreen" id="OGb-Ss-Tp9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ZU-KL-uph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1435" y="-731"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="451" height="336"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -9,12 +9,21 @@ import UIKit
 
 class SplashScreenStart: UIViewController {
 
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        perform(#selector(self.showTabController), with: nil, afterDelay: 3)
+        self.dismiss(animated: true, completion: nil)
     }
     
+   
+    
+    @objc func showTabController() {
+        performSegue(withIdentifier: "showStartScreen", sender: self)
+    }
 
     /*
     // MARK: - Navigation
