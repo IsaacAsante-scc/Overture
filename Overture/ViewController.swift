@@ -8,6 +8,9 @@
 import UIKit
 import Charts
 
+public var setBudget = 0.0
+public var transactionArray = [Transaction]()
+
 class ViewController: UIViewController {
     
     // MARK: - Outlets
@@ -16,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var transactionView: UIView!
     
     // MARK: - Initailization
-    var transactionArray = [Transaction]()
     let categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
     let catTotals = [98.0, 43.0, 237.0, 56.0, 45.0, 108.0]
     

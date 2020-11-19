@@ -22,7 +22,6 @@ class SplashScreenStart: UIViewController {
         logoAnimate()
         perform(#selector(self.showTabController), with: nil, afterDelay: 3)
         self.dismiss(animated: true, completion: nil)
-        showTabController()
     }
     
     // MARK: - Functions and Methods

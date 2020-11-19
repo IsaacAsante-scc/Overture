@@ -15,7 +15,7 @@ enum Category {
     case others
 }
 
-class Transaction: NSObject {
+public class Transaction: NSObject {
     var name: String = ""
     var category: Category
     var date = Date()
