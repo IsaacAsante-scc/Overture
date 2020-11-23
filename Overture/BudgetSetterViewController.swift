@@ -54,11 +54,13 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
-            self.present(alertController, animated: true, completion: nil)    }
-    
+            self.present(alertController, animated: true, completion: nil)
+    }
+        
     
 
     // MARK: - UITextFieldDelegate
+    // Method that sets values that can be entered in UITextField
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = ".1234567890"
         let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
@@ -66,6 +68,7 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
         
         return allowedCharacterSet.isSuperset(of: typedCharacterrSet)
     }
+    
     
 
     /*

@@ -16,9 +16,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN3-jm-LUd">
-                                <rect key="frame" x="92" y="428" width="230" height="41"/>
+                                <rect key="frame" x="92" y="452" width="230" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yN3-jm-LUd" secondAttribute="height" multiplier="230:41" id="JKJ-ZM-x26"/>
+                                    <constraint firstAttribute="width" secondItem="yN3-jm-LUd" secondAttribute="height" multiplier="23:4" id="dCC-aM-7R0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangHK-Thin" family="PingFang HK" pointSize="29"/>
                                 <nil key="textColor"/>
@@ -28,11 +28,11 @@
                         <viewLayoutGuide key="safeArea" id="SkC-Xy-tU2"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SkC-Xy-tU2" firstAttribute="trailing" secondItem="yN3-jm-LUd" secondAttribute="trailing" constant="92" id="30d-G9-FPc"/>
-                            <constraint firstItem="yN3-jm-LUd" firstAttribute="top" secondItem="SkC-Xy-tU2" secondAttribute="top" constant="384" id="LqM-ue-fiq"/>
-                            <constraint firstItem="yN3-jm-LUd" firstAttribute="leading" secondItem="SkC-Xy-tU2" secondAttribute="leading" constant="92" id="X4x-i3-bZA"/>
-                            <constraint firstItem="SkC-Xy-tU2" firstAttribute="bottom" secondItem="yN3-jm-LUd" secondAttribute="bottom" constant="393" id="nj1-sf-dIv"/>
+                            <constraint firstItem="SkC-Xy-tU2" firstAttribute="bottom" secondItem="yN3-jm-LUd" secondAttribute="bottom" constant="370" id="15Q-5W-Vba"/>
+                            <constraint firstItem="yN3-jm-LUd" firstAttribute="top" secondItem="SkC-Xy-tU2" secondAttribute="top" constant="408" id="72c-QP-FEA"/>
                             <constraint firstItem="yN3-jm-LUd" firstAttribute="top" secondItem="SkC-Xy-tU2" secondAttribute="top" constant="302" id="y3a-Mr-QDa"/>
+                            <constraint firstItem="yN3-jm-LUd" firstAttribute="leading" secondItem="SkC-Xy-tU2" secondAttribute="leading" constant="92" id="yMz-g9-deg"/>
+                            <constraint firstItem="SkC-Xy-tU2" firstAttribute="trailing" secondItem="yN3-jm-LUd" secondAttribute="trailing" constant="92" id="ztb-8B-kZ6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -41,8 +41,6 @@
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
-                                <exclude reference="nj1-sf-dIv"/>
-                                <exclude reference="LqM-ue-fiq"/>
                                 <include reference="y3a-Mr-QDa"/>
                             </mask>
                         </variation>

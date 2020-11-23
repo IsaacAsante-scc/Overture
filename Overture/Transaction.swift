@@ -7,6 +7,7 @@
 
 import Foundation
 
+/*
 enum Category {
     case household
     case groceries
@@ -14,14 +15,15 @@ enum Category {
     case food
     case others
 }
+ */
 
 public class Transaction: NSObject {
-    var name: String = ""
-    var category: Category
-    var date = Date()
+    var name: String
+    var category: String
+    var date: String
     var price: Double
     
-    init(name:String, category: Category, date: Date, price: Double) {
+    init(name:String, category: String, date: String, price: Double) {
         self.name = name
         self.category = category
         self.date = date
