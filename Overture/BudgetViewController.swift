@@ -18,6 +18,14 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var monthBudgetRemain: UILabel!
     @IBOutlet weak var weekBudgetRemain: UILabel!
     @IBOutlet weak var dailyBudgetRemain: UILabel!
+    // Category Labels
+    @IBOutlet weak var householdLabel: UILabel!
+    @IBOutlet weak var grocerriesLabel: UILabel!
+    @IBOutlet weak var transportationLabel: UILabel!
+    @IBOutlet weak var otherLabel: UILabel!
+    @IBOutlet weak var utilitesLabel: UILabel!
+    @IBOutlet weak var foodLabel: UILabel!
+    
     
     // MARK: - Initailization
     // var transactionArray = [Transaction]()
@@ -26,6 +34,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     let catTotals = [98.0, 43.0, 237.0, 56.0, 45.0, 108.0]
     
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,9 +47,16 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
 
         setBudgetInfo(list: transactionArray)
         budgetForMonth.text = String(format: "%.2f", setBudget)
+        categoryLabels(category: "Household", label: householdLabel)
+        categoryLabels(category: "Grocerries", label: grocerriesLabel)
+        categoryLabels(category: "Transportation", label: transportationLabel)
+        categoryLabels(category: "Other", label: otherLabel)
+        categoryLabels(category: "Utilites", label: utilitesLabel)
+        categoryLabels(category: "Food", label: foodLabel)
     }
     
     
+    // MARK: - Methods and Functions
     func setChartValues(count: Int = 20) {
         // let values = (0..<count).map { (i) -> ChartDataEntry in
         //    let val = Double(arc4random_uniform(UInt32(count))+ 3))
@@ -82,6 +98,20 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
             monthBudgetRemain.text = "0.00"
             weekBudgetRemain.text = "0.00"
             dailyBudgetRemain.text = "0.00"
+        }
+    }
+    
+    // Method to set label to amount spent in category
+    func categoryLabels(category:String, label: UILabel) {
+        var total = 0.0
+        for item in transactionArray {
+            if category == item.category {
+                total = total + item.price
+            }
+        }
+        if total > 0.0 {
+            label.textColor = UIColor.systemGreen
+            label.text = String(format: "%.2f", total)
         }
     }
 

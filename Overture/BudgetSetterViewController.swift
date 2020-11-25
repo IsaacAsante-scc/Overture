@@ -20,11 +20,10 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
             let numberConv :Double? = Double(budgetAmount.text!)
             setBudget = numberConv!
             print(setBudget)
-            budgetAlert(title: "Sucsess", message: "Budget was sucsessfully set")
-            
+            _ = navigationController?.popViewController(animated: true)
         } else {
             print(setBudget)
-            budgetAlert(title: "Failure", message: "Error - Budget could not be set")
+            budgetAlert(title: "Failure", message: "Error - Budget could not be set Please Try Agian")
         }
     }
     @IBAction func previewBudget(_ sender: Any) {
@@ -36,7 +35,7 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
             dailyLabel.text = String(format: "%.2f", numberConvDaily!)
             weeklyLabel.text = String(format: "%.2f", numberConvWeekly!)
         } else {
-            budgetAlert(title: "Error", message: "Error could not display budget preview")
+            budgetAlert(title: "Error", message: "Error could not display budget preview Please Try Agian")
         }
     }
     

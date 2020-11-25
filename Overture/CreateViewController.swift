@@ -40,7 +40,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerData = ["Other", "Utilities", "Gorcerries", "Transportation", "Food & Dining"]
+        pickerData = categories
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
         

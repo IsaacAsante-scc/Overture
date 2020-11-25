@@ -10,6 +10,8 @@ import Charts
 
 public var setBudget = 0.0
 public var transactionArray = [Transaction]()
+public var categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
+
 
 class ViewController: UIViewController {
     
@@ -17,11 +19,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var budgetView: UIView!
     @IBOutlet weak var transactionView: UIView!
+    @IBOutlet weak var monthBudget: UITextField!
+    @IBOutlet weak var weekBudget: UITextField!
+    @IBOutlet weak var dayBudget: UITextField!
+    // Latest Transaction Outlets
+    @IBOutlet weak var latePrice: UITextField!
+    @IBOutlet weak var lateName: UILabel!
+    @IBOutlet weak var lateCategory: UILabel!
+    @IBOutlet weak var lateDate: UILabel!
+    
+    
+    
+    
+    
     
     // MARK: - Initailization
-    let categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
     let catTotals = [98.0, 43.0, 237.0, 56.0, 45.0, 108.0]
     
+    
+    // MARK: - Overide Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,12 +47,29 @@ class ViewController: UIViewController {
         transactionView.layer.cornerRadius = 13
         
         
-        // Running method populate pie chart
-        populatePieChart(dataInput: categories, values: catTotals)
+       
+        
+        
         
     }
     
-    // MARK: - Methods
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // Running method populate pie chart
+        populatePieChart(dataInput: categories, values: catTotals)
+        budgetPreview()
+        latestTransaction()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - Methods and Functions
     // Method that takes an array of strings and double to populate and label chart
     func populatePieChart(dataInput: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
@@ -75,6 +108,41 @@ class ViewController: UIViewController {
         }
         return colors
     }
+    
+    func budgetPreview() {
+        let value = setBudget
+        if setBudget > 0.0 {
+            monthBudget.text = String(format: "%.2f", value)
+            weekBudget.text = String(format: "%.2f", value/4)
+            dayBudget.text = String(format: "%.2f", value/30)
+        }
+    }
+    
+    func latestTransaction() {
+        let latestNum = transactionArray.count - 1
+        if transactionArray.count > 0 {
+            lateName.text = transactionArray[latestNum].name
+            lateCategory.text = transactionArray[latestNum].category
+            lateDate.text = transactionArray[latestNum].date
+            latePrice.text = String(format: "%.2f", <#T##arguments: CVarArg...##CVarArg#>)
+        }
+        
+    }
+    
+    
+    /*
+    func catTotals(catArray: [String], tranArray: [Transaction]) -> [Double] {
+        var costArray: [Double]
+        for cat in catArray {
+            for item in tranArray {
+                if cat == item.category {
+                    print("hi")
+                }
+            }
+            
+        }
+    }
+    */
 
 
 }

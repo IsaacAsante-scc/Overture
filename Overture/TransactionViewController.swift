@@ -65,10 +65,10 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {return}
         
-        if (transactionArray.contains(searchText)) {
+        /*if (transactionArray.contains(searchText)) {
             print()
         }
-        
+        */
         if searchText == "" {
             
         }
