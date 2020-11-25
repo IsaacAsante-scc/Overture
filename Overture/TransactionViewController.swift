@@ -17,16 +17,14 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     // MARK: - Initialization
-    let example = Transaction(name: "name", category: "cate", date: "324", price: 34.44)
-    var array = ["A", "B", "C"]
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        transactionArray.append(example)
-        
+                
         tableView.delegate = self
         tableView.dataSource = self
     }

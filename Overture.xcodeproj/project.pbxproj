@@ -93,12 +93,12 @@
 				91550E3625681D6600B64D3D /* TransactionViewController.swift */,
 				91550E312567233200B64D3D /* CreateViewController.swift */,
 				919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */,
-				919D6F17253CF23E0022E6D4 /* Transaction.swift */,
 				91977B33252CD5AA0066C23D /* Main.storyboard */,
 				91977B36252CD5AA0066C23D /* Assets.xcassets */,
 				91977B38252CD5AA0066C23D /* LaunchScreen.storyboard */,
 				91977B3B252CD5AA0066C23D /* Info.plist */,
 				912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */,
+				919D6F17253CF23E0022E6D4 /* Transaction.swift */,
 			);
 			path = Overture;
 			sourceTree = "<group>";

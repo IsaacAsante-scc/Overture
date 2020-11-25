@@ -51,7 +51,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
         categoryLabels(category: "Grocerries", label: grocerriesLabel)
         categoryLabels(category: "Transportation", label: transportationLabel)
         categoryLabels(category: "Other", label: otherLabel)
-        categoryLabels(category: "Utilites", label: utilitesLabel)
+        categoryLabels(category: "Utilities", label: utilitesLabel)
         categoryLabels(category: "Food", label: foodLabel)
     }
     

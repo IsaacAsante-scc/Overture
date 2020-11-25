@@ -70,7 +70,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         return pickerData[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        catRow = pickerView.selectedRow(inComponent: 0) + 1
+        catRow = pickerView.selectedRow(inComponent: 0)
     }
     
     

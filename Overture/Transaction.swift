@@ -17,6 +17,8 @@ enum Category {
 }
  */
 
+
+
 public class Transaction: NSObject {
     var name: String
     var category: String

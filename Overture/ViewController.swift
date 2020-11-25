@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - Initailization
-    let catTotals = [98.0, 43.0, 237.0, 56.0, 45.0, 108.0]
+    var catTotals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     
     
     // MARK: - Overide Methods
@@ -45,8 +45,6 @@ class ViewController: UIViewController {
         // MARK: - View Appereance
         budgetView.layer.cornerRadius = 13
         transactionView.layer.cornerRadius = 13
-        
-        
        
         
         
@@ -56,10 +54,13 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        
+        catTotals(tranArray: transactionArray)
         // Running method populate pie chart
         populatePieChart(dataInput: categories, values: catTotals)
         budgetPreview()
         latestTransaction()
+        
     }
     
     
@@ -124,25 +125,34 @@ class ViewController: UIViewController {
             lateName.text = transactionArray[latestNum].name
             lateCategory.text = transactionArray[latestNum].category
             lateDate.text = transactionArray[latestNum].date
-            latePrice.text = String(format: "%.2f", <#T##arguments: CVarArg...##CVarArg#>)
+            latePrice.text = String(format: "%.2f", transactionArray[latestNum].price)
         }
         
     }
     
     
-    /*
-    func catTotals(catArray: [String], tranArray: [Transaction]) -> [Double] {
-        var costArray: [Double]
-        for cat in catArray {
-            for item in tranArray {
-                if cat == item.category {
-                    print("hi")
-                }
+    
+    func catTotals(tranArray: [Transaction]) {
+        for item in transactionArray {
+            switch item.category {
+            case "Household":
+                catTotals[0] = catTotals[0] + item.price
+            case "Other":
+                catTotals[1] = catTotals[1] + item.price
+            case "Grocerries":
+                catTotals[2] = catTotals[2] + item.price
+            case "Food":
+                catTotals[3] = catTotals[3] + item.price
+            case "Transportation":
+                catTotals[4] = catTotals[4] + item.price
+            case "Utilities":
+                catTotals[5] = catTotals[5] + item.price
+            default:
+                print("An item has escaped the switch" + item.name)
             }
-            
         }
     }
-    */
+
 
 
 }
