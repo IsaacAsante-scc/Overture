@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - Initailization
-    var catTotals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    var catTotals = [Double]()
     
     
     // MARK: - Overide Methods
@@ -53,7 +53,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        catTotals = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        pieChartView.clear()
         
         catTotals(tranArray: transactionArray)
         // Running method populate pie chart
@@ -95,6 +96,7 @@ class ViewController: UIViewController {
         pieChartView.data = pieChartData
         pieChartView.holeColor = nil
         pieChartView.legend.textColor = UIColor.white
+        pieChartData.setValueTextColor(NSUIColor.clear)
     }
     
     // Method that takes integer and creates an array based on integer of random colors.
@@ -120,13 +122,19 @@ class ViewController: UIViewController {
     }
     
     func latestTransaction() {
-        let latestNum = transactionArray.count - 1
-        if transactionArray.count > 0 {
-            lateName.text = transactionArray[latestNum].name
-            lateCategory.text = transactionArray[latestNum].category
-            lateDate.text = transactionArray[latestNum].date
-            latePrice.text = String(format: "%.2f", transactionArray[latestNum].price)
-        }
+        print("Array count", transactionArray.count)
+            if (transactionArray.count > 0) {
+                let latestNum = transactionArray.count - 1
+                lateName.text = transactionArray[latestNum].name
+                lateCategory.text = transactionArray[latestNum].category
+                lateDate.text = transactionArray[latestNum].date
+                latePrice.text = String(format: "%.2f", transactionArray[latestNum].price)
+            } else {
+                lateName.text = "N/A"
+                lateCategory.text = "N/A"
+                lateDate.text = "N/A"
+                latePrice.text = "N/A"
+            }
         
     }
     

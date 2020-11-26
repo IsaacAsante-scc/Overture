@@ -60,15 +60,28 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell
     }
+    // Method that allows swiping to delete transaction from tableview and relevent arrays
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableArray.remove(at: indexPath.row)
+            print(tableArray.count)
+            transactionArray.remove(at: indexPath.row)
+            print(transactionArray.count)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            } else if editingStyle == .insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            }
+    }
     
 
     
     // MARK: - UISerachBar Delegate Methods
+    // Method that detects any changes to seachbar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else {return}
-        
         print(searchText)
         
+        // If statment to check if search bar is empty else find results from search
         if searchText.isEmpty {
             searchData.removeAll()
             tableArray = transactionArray
@@ -80,19 +93,15 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
                     print(searchData.count)
                 }
             }
-            
             tableArray = searchData
             self.tableView.reloadData()
         }
         
     }
     
-    
+    // Method that reloads tableview when search canceled
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableArray = transactionArray
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
         tableView.reloadData()
     }
     

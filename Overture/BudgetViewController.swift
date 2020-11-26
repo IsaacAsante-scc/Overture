@@ -103,18 +103,30 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     
     // Method to set label to amount spent in category
     func categoryLabels(category:String, label: UILabel) {
-        var total = 0.0
-        for item in transactionArray {
-            if category == item.category {
-                total = total + item.price
+        if transactionArray.count > 0 {
+            var total = 0.0
+            for item in transactionArray {
+                if category == item.category {
+                    total = total + item.price
+                }
             }
-        }
-        if total > 0.0 {
-            label.textColor = UIColor.systemGreen
-            label.text = String(format: "%.2f", total)
+            if total > 0.0 {
+                label.textColor = UIColor.systemGreen
+                label.text = String(format: "%.2f", total)
+            }
+        } else {
+            label.text = "N/A"
+            label.textColor = UIColor.black
         }
     }
 
+    
+    
+    
+    
+    
+    
+    
 }
 
         
