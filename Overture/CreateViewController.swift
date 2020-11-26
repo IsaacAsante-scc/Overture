@@ -56,7 +56,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     
-    // MARK: - UIPickerViewDelegate
+    // MARK: - UIPickerView Delegate Methods
     // Method that gets number of columns for picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -73,6 +73,17 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         catRow = pickerView.selectedRow(inComponent: 0)
     }
     
+    
+    
+    // MARK: - UITextField Delegate Methods
+    // Method that sets values that can be entered in UITextField
+    func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = ".1234567890"
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterrSet = CharacterSet(charactersIn: string)
+        
+        return allowedCharacterSet.isSuperset(of: typedCharacterrSet)
+    }
     
     // MARK: - Methods
     // Method that creates a new transaction  object and adds it to transactionArray

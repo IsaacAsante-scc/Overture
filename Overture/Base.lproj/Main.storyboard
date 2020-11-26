@@ -126,9 +126,13 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search For Transaction" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-9M-7UU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ylw-dp-9In"/>
@@ -810,7 +814,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VhR-8I-w7i"/>
-        <segue reference="uyu-IW-RYu"/>
+        <segue reference="CcX-uF-YZc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="451" height="336"/>

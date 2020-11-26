@@ -58,7 +58,7 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
         
     
 
-    // MARK: - UITextFieldDelegate
+    // MARK: - UITextField Delegate Methods
     // Method that sets values that can be entered in UITextField
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = ".1234567890"

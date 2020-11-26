@@ -17,8 +17,9 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     // MARK: - Initialization
+    var tableArray = [Transaction]()
+    var searchData = [Transaction]()
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,12 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
                 
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tableArray = transactionArray
+        tableArray.reverse()
         
         tableView.reloadData()
     }
@@ -40,13 +44,13 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - UITableView Delegate Methods
     // Method that returns number of cells for table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactionArray.count
+        return tableArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
         
-        let item = transactionArray[indexPath.row]
+        let item = tableArray[indexPath.row]
         
         // Assign values from TransactionArray to table cell
         cell.transactionName.text = item.name
@@ -60,19 +64,32 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
 
     
     // MARK: - UISerachBar Delegate Methods
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else {return}
         
-        /*if (transactionArray.contains(searchText)) {
-            print()
-        }
-        */
-        if searchText == "" {
-            
-        }
+        print(searchText)
         
+        if searchText.isEmpty {
+            tableArray = transactionArray
+            tableView.reloadData()
+        } else {
+            searchData = tableArray.filter({$0.name == searchText || $0.category == searchText})
+            print(searchData.count)
+            tableArray = searchData
+            self.tableView.reloadData()
+        }
         
     }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableArray = transactionArray
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        tableView.reloadData()
+    }
+    
     
     
 
