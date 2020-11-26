@@ -24,6 +24,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             td = dateFormatter.string(from: datePicker.date)
 
             newTransaction(tName: tn!, tPrice: tp!, tCategory: tc!, tDate: td!)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
     

@@ -19,8 +19,10 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     // MARK: - Actions
+    // Action for Filter Segmented Controller
     @IBAction func filterSC(_ sender: Any) {
         print(filterSCOut.selectedSegmentIndex)
+        // Switch Statement to sort
         switch filterSCOut.selectedSegmentIndex {
         case 0:
             tableArray = transactionArray

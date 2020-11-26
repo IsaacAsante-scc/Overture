@@ -27,26 +27,30 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var foodLabel: UILabel!
     
     
+    
     // MARK: - Initailization
-    // var transactionArray = [Transaction]()
     let categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
-    // let dates = []
-    let catTotals = [98.0, 43.0, 237.0, 56.0, 45.0, 108.0]
+    
+
     
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // populateLineChart(dataInput: categories, values: catTotals)
-        // setChartValues()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        
+        populateLineChart()
 
         setBudgetInfo(list: transactionArray)
         budgetForMonth.text = String(format: "%.2f", setBudget)
+        // Calling categorylLabel Method to set all category labels text
         categoryLabels(category: "Household", label: householdLabel)
         categoryLabels(category: "Grocerries", label: grocerriesLabel)
         categoryLabels(category: "Transportation", label: transportationLabel)
@@ -63,15 +67,19 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
         }
     
     
-    func populateLineChart(dataInput: [String], values: [Double]) {
-        var dataEntries: [ChartDataEntry] = []
-        for i in 0..<dataInput.count {
-          let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
-          dataEntries.append(dataEntry)
+    // Method to populate line chart
+    func populateLineChart() {
+        var entries = [ChartDataEntry]()
+        
+        for x in 0..<10 {
+            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
+            
         }
-        // let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: nil)
-        // let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        // lineChartView.data = lineChartData
+        
+        let set = LineChartDataSet(entries: entries)
+        let data = LineChartData(dataSet: set)
+        set.colors = ChartColorTemplates.vordiplom()
+        lineChartView.data = data
     }
     
     
@@ -80,6 +88,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
         var transactionTotal = 0.00
     
         if (setBudget > 0) {
+            // For loop to get totals of each category from transactionArray
             for transaction in list {
                 transactionTotal = transactionTotal + transaction.price
             }
@@ -87,6 +96,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
             let output2 = (setBudget - transactionTotal) / 4
             let output3 = (setBudget - transactionTotal) / 30
             
+            // Setting label text to category totals with formating for decimals
             var outputString: String = String(format: "%.2f", output1)
             monthBudgetRemain.text = outputString
             outputString = String(format: "%.2f", output2)
@@ -101,7 +111,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
         }
     }
     
-    // Method to set label to amount spent in category
+    // Method to set label colour and text to amount spent in category
     func categoryLabels(category:String, label: UILabel) {
         if transactionArray.count > 0 {
             var total = 0.0

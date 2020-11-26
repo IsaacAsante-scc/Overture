@@ -590,7 +590,6 @@
                         <color key="backgroundColor" red="0.66660696269999997" green="0.66670489310000003" blue="0.66658556459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="SJm-bL-RuX">
-                        <barButtonItem key="leftBarButtonItem" image="arrow.clockwise" catalog="system" id="VkN-iu-7FT"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Ea9-Jw-fvQ">
                             <connections>
                                 <segue destination="O3e-ty-E1D" kind="show" id="VhR-8I-w7i"/>
@@ -613,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1by-tx-fSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257.9710144927537" y="-731.25"/>
+            <point key="canvasLocation" x="1258" y="-731"/>
         </scene>
         <!--Set Budget-->
         <scene sceneID="wXH-js-bIF">
@@ -693,7 +692,9 @@
                         <viewLayoutGuide key="safeArea" id="Vnm-s8-cgg"/>
                         <color key="backgroundColor" red="0.66660696269999997" green="0.66670489310000003" blue="0.66658556459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Set Budget" id="kfZ-UW-Kuu"/>
+                    <navigationItem key="navigationItem" title="Set Budget" id="kfZ-UW-Kuu">
+                        <barButtonItem key="rightBarButtonItem" image="archivebox" catalog="system" id="mpQ-Hi-QFU"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="budgetAmount" destination="0io-N9-B9k" id="ax6-Qg-vyB"/>
                         <outlet property="dailyLabel" destination="r5s-kJ-Rmu" id="hkv-mt-fsd"/>
@@ -834,7 +835,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="451" height="336"/>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="archivebox" catalog="system" width="128" height="106"/>
         <image name="arrowtriangle.down" catalog="system" width="128" height="124"/>
         <image name="arrowtriangle.up" catalog="system" width="128" height="124"/>
         <image name="budget" width="30" height="30"/>
