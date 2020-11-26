@@ -70,11 +70,17 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         print(searchText)
         
         if searchText.isEmpty {
+            searchData.removeAll()
             tableArray = transactionArray
             tableView.reloadData()
         } else {
-            searchData = tableArray.filter({$0.name == searchText || $0.category == searchText})
-            print(searchData.count)
+            for item in transactionArray {
+                if (item.name == searchText || item.category == searchText) {
+                    searchData.append(item)
+                    print(searchData.count)
+                }
+            }
+            
             tableArray = searchData
             self.tableView.reloadData()
         }
