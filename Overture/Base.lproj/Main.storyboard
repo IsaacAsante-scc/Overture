@@ -17,23 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQN-JQ-qgT">
-                                <rect key="frame" x="345" y="157" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ae2-fD-1Qg">
-                                <rect key="frame" x="93" y="156" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-V0-H1x">
-                                <rect key="frame" x="292" y="160" width="45" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sort" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INc-K4-S4w">
-                                <rect key="frame" x="20" y="160" width="55" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Filter By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-V0-H1x">
+                                <rect key="frame" x="59" y="141" width="67" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -134,6 +119,35 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kyN-qD-Ycd">
+                                <rect key="frame" x="33" y="180" width="119" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Added"/>
+                                    <segment title="Price"/>
+                                </segments>
+                                <connections>
+                                    <action selector="filterSC:" destination="fkc-C2-Aev" eventType="valueChanged" id="YOM-Ji-MaO"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lZ3-60-I3B">
+                                <rect key="frame" x="263" y="180" width="131" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="arrowtriangle.down" catalog="system"/>
+                                    <segment title="" image="arrowtriangle.up" catalog="system"/>
+                                </segments>
+                                <connections>
+                                    <action selector="orderSC:" destination="fkc-C2-Aev" eventType="valueChanged" id="iYy-7i-ydp"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpX-5P-IC4">
+                                <rect key="frame" x="306" y="146" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ylw-dp-9In"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -146,13 +160,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="filterSCOut" destination="kyN-qD-Ycd" id="pgA-J8-syO"/>
+                        <outlet property="orderSCOut" destination="lZ3-60-I3B" id="rPU-5A-wyN"/>
                         <outlet property="searchBar" destination="ay4-9M-7UU" id="9HC-XR-dbY"/>
                         <outlet property="tableView" destination="pgL-xu-7Fz" id="F2r-I3-H1N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00i-Ey-fUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257.9710144927537" y="-1456.4732142857142"/>
+            <point key="canvasLocation" x="1258" y="-1456"/>
         </scene>
         <!--OVERTURE-->
         <scene sceneID="6dl-3x-BP5">
@@ -819,6 +835,8 @@
     <resources>
         <image name="Logo" width="451" height="336"/>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="arrowtriangle.down" catalog="system" width="128" height="124"/>
+        <image name="arrowtriangle.up" catalog="system" width="128" height="124"/>
         <image name="budget" width="30" height="30"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="transaction" width="30" height="30"/>

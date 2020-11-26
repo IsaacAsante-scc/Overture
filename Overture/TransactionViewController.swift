@@ -14,11 +14,52 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterSCOut: UISegmentedControl!
+    @IBOutlet weak var orderSCOut: UISegmentedControl!
+    
+    
+    // MARK: - Actions
+    @IBAction func filterSC(_ sender: Any) {
+        print(filterSCOut.selectedSegmentIndex)
+        switch filterSCOut.selectedSegmentIndex {
+        case 0:
+            tableArray = transactionArray
+            print("case is out 0")
+            tableView.reloadData()
+        case 1:
+            tableArray = tableArray.sorted(by: {$0.price > $1.price})
+            print("case is out 1")
+            tableView.reloadData()
+        default:
+            tableArray = transactionArray
+            tableView.reloadData()
+
+        }
+    }
+    @IBAction func orderSC(_ sender: Any) {
+        print(orderSCOut.selectedSegmentIndex)
+
+        switch orderSCOut.selectedSegmentIndex {
+        case 0:
+            tableArray.reverse()
+            print("case is out 0")
+            tableView.reloadData()
+        case 1:
+            tableArray.reverse()
+            tableView.reloadData()
+
+        default:
+            tableArray = transactionArray
+            tableView.reloadData()
+
+        }
+    }
     
     
     // MARK: - Initialization
     var tableArray = [Transaction]()
     var searchData = [Transaction]()
+    var order = Bool()
 
     
     override func viewDidLoad() {
@@ -33,7 +74,9 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableArray = transactionArray
-        tableArray.reverse()
+        
+        
+ 
         
         tableView.reloadData()
     }
@@ -71,6 +114,8 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             } else if editingStyle == .insert {
                 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             }
+        
+        
     }
     
 
@@ -105,7 +150,26 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
     }
     
+    @objc func filterTable(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            tableArray = transactionArray
+        case 2:
+            tableArray = tableArray.sorted(by: {$0.price > $1.price})
+        default:
+            tableArray = transactionArray
+        }
+    }
     
+    
+    @objc func orderTable(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            tableArray.reverse()
+        default:
+            tableArray = transactionArray
+        }
+    }
     
 
     /*
