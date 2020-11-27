@@ -19,10 +19,9 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     // MARK: - Actions
-    // Action for Filter Segmented Controller
+    // Action for Filter Segmented Controller to sort table view using switch statement
     @IBAction func filterSC(_ sender: Any) {
-        print(filterSCOut.selectedSegmentIndex)
-        // Switch Statement to sort
+        // Switch Statement to figure out what Segmented Controller option is selected
         switch filterSCOut.selectedSegmentIndex {
         case 0:
             tableArray = transactionArray
@@ -38,9 +37,10 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
 
         }
     }
+    
+    // Action for Sort Segmented Controller to sort table view using switch statement
     @IBAction func orderSC(_ sender: Any) {
-        print(orderSCOut.selectedSegmentIndex)
-
+        // Switch Statement to figure out what Segmented Controller option is selected
         switch orderSCOut.selectedSegmentIndex {
         case 0:
             tableArray.reverse()
@@ -53,7 +53,6 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         default:
             tableArray = transactionArray
             tableView.reloadData()
-
         }
     }
     
@@ -64,22 +63,20 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     var order = Bool()
 
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-                
+              
+        // Assigning specified delgates
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Reload array for table view and table view itself
         tableArray = transactionArray
-        
-        
- 
-        
         tableView.reloadData()
     }
     
@@ -92,6 +89,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         return tableArray.count
     }
     
+    // Method to assign values from array to cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionTableViewCell
         
@@ -105,19 +103,15 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         
         return cell
     }
+    
     // Method that allows swiping to delete transaction from tableview and relevent arrays
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // If Statement to allow for swiping to remove from table view and array
         if editingStyle == .delete {
             tableArray.remove(at: indexPath.row)
-            print(tableArray.count)
             transactionArray.remove(at: indexPath.row)
-            print(transactionArray.count)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            } else if editingStyle == .insert {
-                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             }
-        
-        
     }
     
 
@@ -126,25 +120,26 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     // Method that detects any changes to seachbar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else {return}
-        print(searchText)
         
-        // If statment to check if search bar is empty else find results from search
+        // If statment to check if search bar is empty else find results from user search
         if searchText.isEmpty {
             searchData.removeAll()
             tableArray = transactionArray
             tableView.reloadData()
         } else {
+            // For loop to go through each item in array and see if name or category match text searched
             for item in transactionArray {
                 if (item.name == searchText || item.category == searchText) {
                     searchData.append(item)
                     print(searchData.count)
                 }
             }
+            // Update array with results and reload tableview
             tableArray = searchData
             self.tableView.reloadData()
         }
-        
     }
+    
     
     // Method that reloads tableview when search canceled
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -152,36 +147,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
     }
     
-    @objc func filterTable(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 1:
-            tableArray = transactionArray
-        case 2:
-            tableArray = tableArray.sorted(by: {$0.price > $1.price})
-        default:
-            tableArray = transactionArray
-        }
-    }
-    
-    
-    @objc func orderTable(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 1:
-            tableArray.reverse()
-        default:
-            tableArray = transactionArray
-        }
-    }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -15,17 +15,22 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var budgetAmount: UITextField!
     
     
+    
+    // MARK: - Actions
+    // Action that will submit budget if textfield is not empty
     @IBAction func submitBudget(_ sender: Any) {
         if (budgetAmount.hasText == true) {
             let numberConv :Double? = Double(budgetAmount.text!)
             setBudget = numberConv!
-            print(setBudget)
             _ = navigationController?.popViewController(animated: true)
         } else {
-            print(setBudget)
+            // Alert if unable to create budget
             budgetAlert(title: "Failure", message: "Error - Budget could not be set Please Try Agian")
         }
     }
+    
+    
+    // Action to update labels to preview budget for week and day
     @IBAction func previewBudget(_ sender: Any) {
         if (budgetAmount.hasText == true) {
             var numberConvDaily:Double? = Double(budgetAmount.text!)
@@ -35,10 +40,25 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
             dailyLabel.text = String(format: "%.2f", numberConvDaily!)
             weeklyLabel.text = String(format: "%.2f", numberConvWeekly!)
         } else {
+            // Alert if unable to create budget
             budgetAlert(title: "Error", message: "Error could not display budget preview Please Try Agian")
         }
     }
     
+    
+    // Action to reset budget an notify the user with alert
+    @IBAction func resetBudget(_ sender: Any) {
+        setBudget = 0.0
+        budgetAlert(title: "Reset Complete", message: "Budget has been reset")
+    }
+    
+    
+    
+    
+    
+    
+    
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,7 +79,7 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
     
 
     // MARK: - UITextField Delegate Methods
-    // Method that sets values that can be entered in UITextField
+    // Method that sets defined values that can only be entered in UITextField
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = ".1234567890"
         let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
@@ -69,15 +89,7 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

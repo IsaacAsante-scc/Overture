@@ -7,24 +7,17 @@
 
 import Foundation
 
-/*
-enum Category {
-    case household
-    case groceries
-    case transportation
-    case food
-    case others
-}
- */
 
 
-
+// MARK: - Transaction Class
 public class Transaction: NSObject {
+    // Defining class
     var name: String
     var category: String
     var date: String
     var price: Double
     
+    // Initilizers
     init(name:String, category: String, date: String, price: Double) {
         self.name = name
         self.category = category

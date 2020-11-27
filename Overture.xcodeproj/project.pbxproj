@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25AEFAFD3AB984FFD942A187 /* Pods_Overture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90B93BAD070FBE1A01BD166 /* Pods_Overture.framework */; };
 		912CC904256B109700CAEAEC /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */; };
+		912CC9302570EAA800CAEAEC /* TransactionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 912CC92E2570EAA800CAEAEC /* TransactionModel.xcdatamodeld */; };
 		913CBCED2559083A00D67133 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CBCEC2559083A00D67133 /* BudgetViewController.swift */; };
 		91550E2E2566C65C00B64D3D /* BudgetSetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91550E2D2566C65C00B64D3D /* BudgetSetterViewController.swift */; };
 		91550E322567233200B64D3D /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91550E312567233200B64D3D /* CreateViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0E8C60E1C154E5EA1BDF1DE2 /* Pods-Overture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Overture.debug.xcconfig"; path = "Target Support Files/Pods-Overture/Pods-Overture.debug.xcconfig"; sourceTree = "<group>"; };
 		912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		912CC92F2570EAA800CAEAEC /* TransactionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TransactionModel.xcdatamodel; sourceTree = "<group>"; };
 		913CBCEC2559083A00D67133 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		91550E2D2566C65C00B64D3D /* BudgetSetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSetterViewController.swift; sourceTree = "<group>"; };
 		91550E312567233200B64D3D /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				91977B3B252CD5AA0066C23D /* Info.plist */,
 				912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */,
 				919D6F17253CF23E0022E6D4 /* Transaction.swift */,
+				912CC92E2570EAA800CAEAEC /* TransactionModel.xcdatamodeld */,
 			);
 			path = Overture;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				913CBCED2559083A00D67133 /* BudgetViewController.swift in Sources */,
 				91550E3725681D6600B64D3D /* TransactionViewController.swift in Sources */,
 				91977B2E252CD5AA0066C23D /* AppDelegate.swift in Sources */,
+				912CC9302570EAA800CAEAEC /* TransactionModel.xcdatamodeld in Sources */,
 				91977B30252CD5AA0066C23D /* SceneDelegate.swift in Sources */,
 				919D6F15253CD2530022E6D4 /* SplashScreenStart.swift in Sources */,
 				912CC904256B109700CAEAEC /* TransactionTableViewCell.swift in Sources */,
@@ -437,6 +441,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		912CC92E2570EAA800CAEAEC /* TransactionModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				912CC92F2570EAA800CAEAEC /* TransactionModel.xcdatamodel */,
+			);
+			currentVersion = 912CC92F2570EAA800CAEAEC /* TransactionModel.xcdatamodel */;
+			path = TransactionModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 91977B22252CD5A90066C23D /* Project object */;
 }

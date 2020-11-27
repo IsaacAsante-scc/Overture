@@ -28,7 +28,6 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var foodLabel: UILabel!
     
     
-    
     // MARK: - Initailization
     let categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
 
@@ -37,13 +36,9 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
         
         populateLineChart()
 
@@ -60,31 +55,28 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     
     
     // MARK: - Methods and Functions
-    func setChartValues(count: Int = 20) {
-        // let values = (0..<count).map { (i) -> ChartDataEntry in
-        //    let val = Double(arc4random_uniform(UInt32(count))+ 3))
-        }
-    
-    
     // Method to populate line chart
     func populateLineChart() {
         var entries = [ChartDataEntry]()
         var count = 1.0
         
+        // For loop to create an array of entries for line chart
         for items in transactionArray {
-            
             entries.append(ChartDataEntry(x: count, y: items.price))
             count = count + 1
         }
         
+        // Creating Data Set from array
         let set = LineChartDataSet(entries: entries)
+        // Creating line chart data from data set
         let data = LineChartData(dataSet: set)
+        // Setting chart colors and setting data for line chart
         set.colors = ChartColorTemplates.vordiplom()
         lineChartView.data = data
     }
     
     
-    // Method to calculate and set budget remaing text labels
+    // Method to calculate and set budget remaininng text labels
     func setBudgetInfo(list: [Transaction]) {
         var transactionTotal = 0.00
     
@@ -117,6 +109,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
         if transactionArray.count > 0 {
             var total = 0.0
             spentTodayText.text = String(format: "%.2f", spentTD)
+            // For loop to cycle through each item n array
             for item in transactionArray {
                 if category == item.category {
                     total = total + item.price
