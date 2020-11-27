@@ -18,6 +18,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     @IBOutlet weak var monthBudgetRemain: UILabel!
     @IBOutlet weak var weekBudgetRemain: UILabel!
     @IBOutlet weak var dailyBudgetRemain: UILabel!
+    @IBOutlet weak var spentTodayText: UITextField!
     // Category Labels
     @IBOutlet weak var householdLabel: UILabel!
     @IBOutlet weak var grocerriesLabel: UILabel!
@@ -30,9 +31,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     
     // MARK: - Initailization
     let categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
-    
 
-    
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -70,10 +69,12 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     // Method to populate line chart
     func populateLineChart() {
         var entries = [ChartDataEntry]()
+        var count = 1.0
         
-        for x in 0..<10 {
-            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
+        for items in transactionArray {
             
+            entries.append(ChartDataEntry(x: count, y: items.price))
+            count = count + 1
         }
         
         let set = LineChartDataSet(entries: entries)
@@ -115,6 +116,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
     func categoryLabels(category:String, label: UILabel) {
         if transactionArray.count > 0 {
             var total = 0.0
+            spentTodayText.text = String(format: "%.2f", spentTD)
             for item in transactionArray {
                 if category == item.category {
                     total = total + item.price
@@ -125,15 +127,14 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
                 label.text = String(format: "%.2f", total)
             }
         } else {
+            spentTodayText.text = nil
+            spentTD = 0.0
             label.text = "N/A"
             label.textColor = UIColor.black
         }
     }
+    
 
-    
-    
-    
-    
     
     
     

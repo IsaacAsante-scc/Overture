@@ -8,9 +8,13 @@
 import UIKit
 import Charts
 
+
+// MARK: - Global Variables Initilaization
 public var setBudget = 0.0
 public var transactionArray = [Transaction]()
 public var categories = ["Household", "Other", "Grocerries", "Food", "Transportation", "Utilities"]
+public var budgetDate = Date()
+public var spentTD = 0.0
 
 
 class ViewController: UIViewController {

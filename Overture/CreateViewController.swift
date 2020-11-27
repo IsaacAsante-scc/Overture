@@ -22,8 +22,10 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             tp = Double(transactionPrice.text!)
             tc = String(pickerData[catRow])
             td = dateFormatter.string(from: datePicker.date)
-
+ 
             newTransaction(tName: tn!, tPrice: tp!, tCategory: tc!, tDate: td!)
+            spentToday()
+                        
             _ = navigationController?.popViewController(animated: true)
         }
     }
@@ -36,6 +38,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     var tp:Double?
     var tc:String?
     var td: String?
+    let calender = Calendar.current
+    let date = Date()
     
     
     
@@ -93,6 +97,24 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         transactionArray.append(transaction)
         print(transaction.date)
         print(transactionArray.count)
+    }
+    
+    
+    // Method to update amount spent today by user
+    func spentToday() {
+        if transactionArray.count > 0 {
+            dateFormatter.dateFormat = "MM/dd/yy"
+            let itemString = dateFormatter.string(from: datePicker.date)
+            let currentDate = dateFormatter.string(from: date)
+
+            if itemString == currentDate {
+                let count = transactionArray.count - 1
+                spentTD = spentTD + transactionArray[count].price
+            }
+        }
+       
+        
+        
     }
     
     
