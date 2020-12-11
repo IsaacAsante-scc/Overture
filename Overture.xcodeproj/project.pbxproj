@@ -66,6 +66,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9163D64C2581F2AB000F7091 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */,
+				91977B31252CD5AA0066C23D /* ViewController.swift */,
+				913CBCEC2559083A00D67133 /* BudgetViewController.swift */,
+				91550E2D2566C65C00B64D3D /* BudgetSetterViewController.swift */,
+				91550E3625681D6600B64D3D /* TransactionViewController.swift */,
+				91550E312567233200B64D3D /* CreateViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9163D64D2581F35A000F7091 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				91977B2D252CD5AA0066C23D /* AppDelegate.swift */,
+				91977B2F252CD5AA0066C23D /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		9163D64E2581F38E000F7091 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		9163D64F2581F391000F7091 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				919D6F17253CF23E0022E6D4 /* Transaction.swift */,
+				912CC92E2570EAA800CAEAEC /* TransactionModel.xcdatamodeld */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
 		91977B21252CD5A90066C23D = {
 			isa = PBXGroup;
 			children = (
@@ -87,21 +126,14 @@
 		91977B2C252CD5AA0066C23D /* Overture */ = {
 			isa = PBXGroup;
 			children = (
-				91977B2D252CD5AA0066C23D /* AppDelegate.swift */,
-				91977B2F252CD5AA0066C23D /* SceneDelegate.swift */,
-				91977B31252CD5AA0066C23D /* ViewController.swift */,
-				913CBCEC2559083A00D67133 /* BudgetViewController.swift */,
-				91550E2D2566C65C00B64D3D /* BudgetSetterViewController.swift */,
-				91550E3625681D6600B64D3D /* TransactionViewController.swift */,
-				91550E312567233200B64D3D /* CreateViewController.swift */,
-				919D6F14253CD2530022E6D4 /* SplashScreenStart.swift */,
+				9163D64F2581F391000F7091 /* Data Models */,
+				9163D64E2581F38E000F7091 /* Custom Cell */,
+				9163D64D2581F35A000F7091 /* Delegates */,
+				9163D64C2581F2AB000F7091 /* ViewControllers */,
 				91977B33252CD5AA0066C23D /* Main.storyboard */,
 				91977B36252CD5AA0066C23D /* Assets.xcassets */,
 				91977B38252CD5AA0066C23D /* LaunchScreen.storyboard */,
 				91977B3B252CD5AA0066C23D /* Info.plist */,
-				912CC903256B109700CAEAEC /* TransactionTableViewCell.swift */,
-				919D6F17253CF23E0022E6D4 /* Transaction.swift */,
-				912CC92E2570EAA800CAEAEC /* TransactionModel.xcdatamodeld */,
 			);
 			path = Overture;
 			sourceTree = "<group>";

@@ -61,6 +61,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         transactionPrice.delegate = self
+        
+        self.hideKeyboard()
     }
     
     

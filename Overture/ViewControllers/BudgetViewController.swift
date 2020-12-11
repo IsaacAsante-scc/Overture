@@ -123,7 +123,7 @@ class BudgetViewController: UIViewController, UITabBarControllerDelegate {
             spentTodayText.text = nil
             spentTD = 0.0
             label.text = "N/A"
-            label.textColor = UIColor.black
+            label.textColor = UIColor(named: "textColorBlack")
         }
     }
     

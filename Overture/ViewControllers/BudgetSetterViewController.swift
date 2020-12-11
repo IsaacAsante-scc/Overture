@@ -64,6 +64,8 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         budgetAmount.delegate = self
+        self.hideKeyboard()
+
     }
     
     
@@ -88,8 +90,21 @@ class BudgetSetterViewController: UIViewController, UITextFieldDelegate {
         return allowedCharacterSet.isSuperset(of: typedCharacterrSet)
     }
     
-    
-    
 
 
+}
+
+// MARK: - UIViewController Extension
+// Extension to dismiss keyboard
+extension UIViewController {
+    func hideKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        // Tap does not affect any UI interactions
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

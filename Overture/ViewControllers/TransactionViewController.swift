@@ -71,6 +71,9 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        
+        self.hideKeyboard()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
